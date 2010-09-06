@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <config>
 	<info>
-		<id>10EEC23A-0779-4068-9507A9C5ED4A8699</id>
+		<id>A40D51DA-C0A8-7D13-9310FA324A717A35</id>
 		<version>{version}</version>
-		<name>MongoDbCache</name>
+		<name>CfJavascript-CfStyleSheet Extension</name>
 		<type>server</type>
-		<label>MongoDb Cache</label>
-		<description>MongoDb Cache Extension</description>
+		<label>Cfjavascript-CfStyleSheet Extension</label>
+		<description>Cfjavascript-CfStyleSheet Extension</description>
 		<created>{created}</created> 
-		<category>Core Extension</category>
+		<category>Tag</category>
 		<author>Andrea Campolonghi</author>
 	</info>
 </config>
