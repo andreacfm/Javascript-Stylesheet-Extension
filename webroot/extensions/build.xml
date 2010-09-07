@@ -54,7 +54,7 @@
 		<javac srcdir="${project.extPath}/src">
 			 <classpath refid="master-classpath"/>
 		</javac>
-		<jar basedir="${project.extPath}/src" destfile="${project.extPath}/lib/YuiCompressorExtension.jar" />
+		<jar basedir="${project.extPath}/src" destfile="${project.extPath}/lib/YuiCompGatewayExtension.jar" />
 	</target>
 	
 	<target name="deleteArchives">

@@ -1,7 +1,7 @@
 <cfcomponent>
 	
 	<cfscript>
-	variables.jar = "YuiCompressorExtension.jar"
+	variables.jar = "YuiCompGatewayExtension.jar"
 	variables.jars = "#variables.jar#,yuicompressor.jar,README-yui-compressor.txt";
 	variables.tags = "JavaScript,StyleSheet";
 	</cfscript>
@@ -28,10 +28,6 @@
 			<cfloop list="#variables.tags#" index="i">
 				<cffile action="copy" destination="#contextPath#/library/tag/" source="#path#/tags/#i#.cfc" />			
 			</cfloop>
-
-
-			<cffile action="copy" destination="#serverPath#/lib" source="#path#/YuiCompressorExtension.jar" />
-			<cffile action="copy" destination="#serverPath#/lib" source="#path#/yuicompressor.jar" />
 		        
 			<cfsavecontent variable="temp">
 				<cfoutput>
@@ -61,10 +57,18 @@
 			
 		<cftry>
 
-			<cffile action="delete" file="#contextPath#/library/tag/JavaScript.cfc" />
-			<cffile action="delete" file="#contextPath#/library/tag/StyleSheet.cfc" />			
-			<cffile action="delete" file="#contextPath#/lib/YuiCompressorExtension.jar" />
-			<cffile action="delete" file="#contextPath#/lib/yuicompressor.jar" />
+
+			<cfloop list="#variables.jars#" index="i">
+				<cfadmin 
+	            	action="removeJar"
+	            	type="#request.adminType#"
+	            	password="#session["password"&request.adminType]#"    
+	            	jar="#path#lib/#i#">
+			</cfloop>
+            
+			<cfloop list="#variables.tags#" index="i">
+				<cffile action="delete" file="#path#/tags/#i#.cfc" />			
+			</cfloop>
 			
 			<cfcatch type="any">
 				<cfset result.status = false />

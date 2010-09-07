@@ -1,17 +1,8 @@
 package railo.extensions.io.text;
 
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-
 import org.mozilla.javascript.ErrorReporter;
 import org.mozilla.javascript.EvaluatorException;
-
-import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
-
-import railo.loader.engine.CFMLEngine;
-import railo.loader.engine.CFMLEngineFactory;
-import railo.runtime.PageContext;
-
 
 public class ErrorReporterImpl implements ErrorReporter {
 	
@@ -35,14 +26,7 @@ public class ErrorReporterImpl implements ErrorReporter {
 	}
 
 	private void print(String level, String message) {
-		if(writer==null){
-			CFMLEngine engine = CFMLEngineFactory.getInstance();
-			if(engine!=null){
-				PageContext pc=engine.getThreadPageContext();
-				if(pc!=null)writer=pc.getConfig().getErrWriter();
-			}
-			if(writer==null)writer=new PrintWriter(System.err);
-		}
+		if(writer==null)writer=new PrintWriter(System.err);
 		writer.write("["+level+"] "+message+"\n");
     	writer.flush();	
 	}
