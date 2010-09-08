@@ -13,6 +13,8 @@ start.jar
 stop
 LICENSES/
 webroot/WEB-INF/
+webroot/_cfjavascript
+webroot/_cfstylesheet
 webroot/extensions/ext/*.zip
 webroot/extensions/output/*.*
 webroot/extensions/unames.xml

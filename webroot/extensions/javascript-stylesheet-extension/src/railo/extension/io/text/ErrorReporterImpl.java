@@ -1,4 +1,4 @@
-package railo.extensions.io.text;
+package railo.extension.io.text;
 
 import java.io.PrintWriter;
 import org.mozilla.javascript.ErrorReporter;

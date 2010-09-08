@@ -23,7 +23,7 @@
 	</target>
 	
 	<target name="compressExtension" depends="replaceConfigVars">
-		<zip destfile="ext/CfJavascript-CFStyleSheet.zip" basedir="${project.extPath}">
+		<zip destfile="ext/CfJavaScript-CfStyleSheet.zip" basedir="${project.extPath}">
 			<exclude name="**/src/**"/>
 			<exclude name="**/bin/**"/>			
 		</zip>

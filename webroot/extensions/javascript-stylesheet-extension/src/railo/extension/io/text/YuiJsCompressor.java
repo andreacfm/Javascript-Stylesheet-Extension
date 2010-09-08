@@ -1,4 +1,4 @@
-package railo.extensions.io.text;
+package railo.extension.io.text;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,13 +26,28 @@ public class YuiJsCompressor {
 	}
 	
 	public void compress(String source, String destination) throws IOException{
-			
-		InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(source)));
-		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(new File(destination)));
 		
-		JavaScriptCompressor compressor=new JavaScriptCompressor(isr, new ErrorReporterImpl());
-		compressor.compress(osw, linebreak, munge, verbose, preserveAllSemiColons, disableOptimizations);
-
+		InputStreamReader isr = null;
+		OutputStreamWriter osw = null;
+		
+		try{
+			
+			isr = new InputStreamReader(new FileInputStream(new File(source)));
+			osw = new OutputStreamWriter(new FileOutputStream(new File(destination)));
+			
+			JavaScriptCompressor compressor=new JavaScriptCompressor(isr, new ErrorReporterImpl());
+			compressor.compress(osw, linebreak, munge, verbose, preserveAllSemiColons, disableOptimizations);			
+		
+		}catch(IOException e){
+		
+			e.printStackTrace();
+		
+		}finally{
+		
+			isr.close();
+			osw.close();			
+		
+		}
 	}
 
 }

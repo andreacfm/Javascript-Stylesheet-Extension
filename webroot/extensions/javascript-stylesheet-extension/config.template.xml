@@ -4,7 +4,7 @@
 		<id>A40D51DA-C0A8-7D13-9310FA324A717A35</id>
 		<version>{version}</version>
 		<name>CfJavascript-CfStyleSheet Extension</name>
-		<type>server</type>
+		<type>all</type>
 		<label>Cfjavascript-CfStyleSheet Extension</label>
 		<description>Cfjavascript-CfStyleSheet Extension</description>
 		<created>{created}</created> 

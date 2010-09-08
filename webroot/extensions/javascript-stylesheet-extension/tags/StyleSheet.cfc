@@ -128,7 +128,7 @@
 	 --->
 	<cffunction name="getCompressor" returntype="any" output="true" access="private">
 		<cfargument name="attributes" required="true" type="Struct" />
-		<cfreturn createObject("java", "railo.extension.js.RailoCssCompressor").init(attributes.lineBreak) />
+		<cfreturn createObject("java", "railo.extension.io.text.YuiCssCompressor").init(attributes.lineBreak) />
 	</cffunction>
 
 	<!--- 
