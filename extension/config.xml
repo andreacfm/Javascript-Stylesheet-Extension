@@ -2,12 +2,12 @@
 <config>
 	<info>
 		<id>A40D51DA-C0A8-7D13-9310FA324A717A35</id>
-		<version>1.201009082015</version>
+		<version>1.201206221805</version>
 		<name>CfJavascript-CfStyleSheet Extension</name>
 		<type>all</type>
 		<label>Cfjavascript-CfStyleSheet Extension</label>
 		<description>Cfjavascript-CfStyleSheet Extension</description>
-		<created>2010-September-8 20:15</created> 
+		<created>2012-June-22 18:05</created> 
 		<category>Tag</category>
 		<author>Andrea Campolonghi</author>
 	</info>

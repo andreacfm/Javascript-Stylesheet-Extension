@@ -116,14 +116,14 @@
 	<li>
 		<a href="cfjs/default.cfm">Default - compress and concatenate 2 js files.</a>
 		<div class="code">
-			&lt;cfset src = ['/cfjs/test/js/RailoAjax.js','/cfjs/test/js/jquery.js'] /><br/>
+			&lt;cfset src = ['RailoAjax.js','jquery.js'] /><br/>
 			&lt;cfjavascript src="#src#" />
 		</div>
 	</li>
 	<li>
 		<a href="cfjs/filename.cfm">Choose a filename and a custom path.</a>
 		<div class="code">
-			&lt;cfset src = ['/cfjs/test/js/RailoAjax.js','/cfjs/test/js/jquery.js'] /><br/>
+			&lt;cfset src = ['RailoAjax.js','jquery.js'] /><br/>
 			&lt;cfjavascript src="#src#" path="/cfjs/test/jscompressed" filename="myJs"/>
 		</div>
 	</li>
@@ -142,7 +142,7 @@
 	<li>
 		<a href="cfjs/munge.cfm">Munge</a>
 		<div class="code">
-			&lt;cfset src = ['/cfjs/test/js/RailoAjax.js','/cfjs/test/js/jquery.js'] /><br/>
+			&lt;cfset src = ['RailoAjax.js','jquery.js'] /><br/>
 			&lt;fjavascript src="#src#" path="/cfjs/test/jscompressed" filename="myJs_Munge" munge="true"/>
 		</div>
 	</li>
@@ -232,15 +232,15 @@
 	<li>
 		<a href="cfcss/default.cfm">Default - compress and concatenate.</a>
 		<div class="code">
-			&lt;cfset src = ['/cfjs/test/css/core.css','/cfjs/test/css/skin.css']  />
+			&lt;cfset src = ['core.css','skin.css']  />
 			&lt;cfstylesheet src="#src#" />
 		</div>
 	</li>
 	<li>
 		<a href="cfcss/filename.cfm">Choose a filename and a custom path.</a>
 		<div class="code">
-			&lt;cfset src = ['/cfjs/test/js/RailoAjax.js','/cfjs/test/js/jquery.js'] /><br/>
-			&lt;cfstylesheet src="#src#" path="/cfjs/test/cssCompressed" filename="myCss"/>
+			&lt;cfset src = ['RailoAjax.js','jquery.js'] /><br/>
+			&lt;cfstylesheet src="#src#" path="/demo/cssCompressed" filename="myCss"/>
 		</div>
 	</li>
 	<li>
@@ -258,8 +258,8 @@
 	<li>
 		<a href="cfcss/linebreak.cfm">Linebreak = 0 </a>
 		<div class="code">
-			&lt;cfset src = ['/cfjs/test/js/RailoAjax.js','/cfjs/test/js/jquery.js'] /><br/>
-			&lt;cfstylesheet src="#src#" path="/cfjs/test/cssCompressed" filename="myCss_l0" linebreak="0"/>
+			&lt;cfset src = ['RailoAjax.js','jquery.js'] /><br/>
+			&lt;cfstylesheet src="#src#" path="/demo/cssCompressed" filename="myCss_l0" linebreak="0"/>
 		</div>
 	</li>
 </ul>

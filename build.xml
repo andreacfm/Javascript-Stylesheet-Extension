@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CfJavaScript-CfStyleSheet" default="updateExtension">
+
+    <include file="version.xml"/>
+
+    <!-- project properties -->
+	<property file="project.properties"/>
+
+	<tstamp prefix="stamp">
+		 <format property="TODAY_UK" pattern="yyyyMMMMdhhmm" locale="en,UK"/>
+	</tstamp>
+	<tstamp prefix="created">
+		<format property="TODAY" pattern="yyyy-MMMM-d" locale="en,UK"/>
+		<format property="TSTAMP" pattern="HH:mm" locale="en,UK"/>
+	</tstamp>
+
+
+    <target name="updateExtension" depends="buildExtension,deployLib,deployTags,restartRailo"/>
+
+    <target name="restartRailo">
+        <echo message="restart railo"/>
+        <get src="http://${server.name}:${server.port}/reload.cfm" dest="output/output.html" ignoreerrors="true" />
+    </target>
+
+    <target name="deployLib">
+        <echo message="Deploying new lib"/>
+        <copy todir="${context_path}/library/tag/" overwrite="true">
+            <fileset dir="${project.extPath}/tags" includes="*cfc"/>
+        </copy>
+    </target>
+
+    <target name="deployTags">
+        <echo message="Deploying tags"/>
+        <copy todir="${context_path}/lib" overwrite="true">
+            <fileset dir="${project.extPath}/lib" includes="*jar"/>
+        </copy>
+    </target>
+
+
+    <target name="buildExtension" depends="replaceConfigVars">
+		<zip destfile="${basedir}/ext/CfJavaScript-CfStyleSheet.zip" basedir="${project.extPath}"/>
+	</target>
+	
+
+	<target name="replaceConfigVars" depends="copyLibs">
+		<copy file="${basedir}/config.template.xml" tofile="${project.extPath}/config.xml" overwrite="true" />
+		<replace file="${project.extPath}/config.xml" token="{version}" value="1.${stamp.DSTAMP}${stamp.TSTAMP}" />
+		<replace file="${project.extPath}/config.xml" token="{created}" value="${created.TODAY} ${created.TSTAMP}" />
+	</target>
+	
+	<target name="copyLibs" depends="createJar">
+		<copy todir="${project.extPath}/lib/" overwrite="true">
+		    <fileset dir="${basedir}/lib/"/>
+		</copy>
+	</target>
+	
+	<target name="createJar" depends="deleteArchives">
+		<path id="master-classpath">
+			<fileset dir="${basedir}/lib/">
+				<include name="*.jar"/>
+			 </fileset>
+		</path>
+		<javac srcdir="${basedir}/src" destdir="${basedir}/bin">
+			 <classpath refid="master-classpath"/>
+		</javac>
+		<jar basedir="${basedir}/bin" destfile="${project.extPath}/lib/YuiCompGatewayExtension.jar" />
+	</target>
+	
+	<target name="deleteArchives">
+		<delete dir="${project.extPath}/lib/" includes="*.jar" />
+        <delete dir="${basedir}/bin/" includes="*.class" />
+        <delete dir="${basedir}/ext/" includes="*.zip"/>
+		<delete dir="output/" includes="*.html"/>
+		<delete file="${project.extPath}/config.xml" />
+		<mkdir dir="${project.extPath}/lib/" />
+	</target>
+
+</project>
