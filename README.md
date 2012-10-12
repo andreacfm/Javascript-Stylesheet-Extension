@@ -214,7 +214,7 @@
 
 * Choose a filename and a custom path.</a>
 
-		<cfset src = ['RailoAjax.js','jquery.js'] /><br/>
+		<cfset src = ['core.css','skin.css'] /><br/>
 		<cfstylesheet src="#src#" path="/demo/cssCompressed" filename="myCss"/>
 
 * Debug
@@ -227,5 +227,5 @@
 
 * Linebreak = 0 </a>
 
-	    <cfset src = ['RailoAjax.js','jquery.js'] /><br/>
+	    <cfset src = ['core.css','skin.css'] /><br/>
 	    <cfstylesheet src="#src#" path="/demo/cssCompressed" filename="myCss_l0" linebreak="0"/>
